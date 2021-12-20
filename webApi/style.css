@@ -1,9 +1,19 @@
+body {
+  width: 100%;
+  position: relative;
+}
+
 .box {
   width: 200px;
   height: 200px;
   background-color: lightgray;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 .box:nth-child(7) {
   background-color: teal;
+}
+.btns {
+  position: fixed;
+  top: 0;
+  right: 0;
 }
