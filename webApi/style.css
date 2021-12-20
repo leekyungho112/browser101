@@ -1,0 +1,9 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  margin: 10px;
+}
+.box:nth-child(7) {
+  background-color: teal;
+}
