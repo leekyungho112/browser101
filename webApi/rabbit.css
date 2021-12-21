@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.find {
+  position: absolute;
+  top: 5px;
+}
+img {
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
+}

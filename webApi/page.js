@@ -15,7 +15,7 @@ scrollByPx.addEventListener('click', () => {
 });
 
 scrollToPx.addEventListener('click', () => {
-  window.scrollTo(0, event.pageY + 100);
+  window.scrollTo(0, 100);
 });
 scrollIntoSpecial.addEventListener('click', () => {
   box.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
