@@ -8,20 +8,14 @@ const list = document.querySelector('.list');
 
 const painting = (text) => {
   const li = document.createElement('li');
-  const button = document.createElement('button');
-  const div = document.createElement('div');
-
   li.setAttribute('class', 'item');
-  div.setAttribute('class', 'divider');
-  li.innerText = text;
-  button.innerText = '❌';
-  button.addEventListener('click', (e) => {
-    const target = e.target.parentNode;
-    list.removeChild(target);
-  });
-  li.append(button);
-  li.append(div);
-  list.append(li);
+  li.setAttribute('data-id', Date.now());
+  li.innerHTML = `
+    <span class="item__name">${text}</span>
+    <button class="item__button" data-id=${Date.now()}>❌</button>
+    `;
+
+  return li;
 };
 
 const handleSubmit = (event) => {
@@ -30,10 +24,20 @@ const handleSubmit = (event) => {
   if (text === '') {
     return;
   }
-  painting(text);
+  const item = painting(text);
+  list.appendChild(item);
+  item.scrollIntoView({ block: 'center' });
   input.value = '';
   input.focus();
 };
 
+//부모로 이벤트 위임
+list.addEventListener('click', (event) => {
+  const id = event.target.dataset.id;
+  const target = event.target.parentNode;
+  if (id === target.dataset.id) {
+    list.removeChild(target);
+  }
+});
 form.addEventListener('submit', handleSubmit);
 button.addEventListener('click', handleSubmit);
