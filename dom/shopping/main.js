@@ -9,15 +9,18 @@ const list = document.querySelector('.list');
 const painting = (text) => {
   const li = document.createElement('li');
   const button = document.createElement('button');
+  const div = document.createElement('div');
+
   li.setAttribute('class', 'item');
+  div.setAttribute('class', 'divider');
   li.innerText = text;
   button.innerText = '❌';
   button.addEventListener('click', (e) => {
     const target = e.target.parentNode;
-    console.log(target);
     list.removeChild(target);
   });
   li.append(button);
+  li.append(div);
   list.append(li);
 };
 
@@ -29,6 +32,7 @@ const handleSubmit = (event) => {
   }
   painting(text);
   input.value = '';
+  input.focus();
 };
 
 form.addEventListener('submit', handleSubmit);
